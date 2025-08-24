@@ -1,38 +1,287 @@
+
+/* --- Custom CSS Variables --- */
+:root {
+  --primary-color: #4a69bd; /* A calming blue */
+  --primary-color-hover: #3c5496;
+  --secondary-color: #6c757d;
+  --secondary-color-hover: #5a6268;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --info-color: #17a2b8;
+  --warning-color: #ffc107;
+
+  --bg-light: #f8f9fa;
+  --bg-dark: #343a40; /* Darker nav for contrast */
+  --text-dark: #333;
+  --text-light: #f0f2f5;
+
+  --card-bg: #fff;
+  --border-color: #e0e0e0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --transition-speed: 0.3s ease;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+/* --- Navbar Styling --- */
+.navbar {
+  background-color: var(--bg-dark) !important;
+  box-shadow: var(--shadow-md);
+  padding: 1rem 0; /* More vertical padding */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.navbar-brand {
+  font-weight: 700; /* Bolder brand text */
+  font-size: 1.6rem;
+  color: var(--text-light) !important;
 }
+
+.navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-weight: 500;
+  padding: 0.75rem 1rem;
+  margin: 0 5px; /* Spacing between links */
+  border-radius: 0.3rem;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--text-light) !important;
+  background-color: var(--primary-color-hover);
+}
+
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* --- Main Content Container --- */
+.main-content {
+  flex-grow: 1; /* Allows content area to fill remaining space */
+  padding: 2rem 0;
+  background-color: var(--bg-light); /* Ensure main content has distinct background */
+}
+
+/* --- Card Styling --- */
+.card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.8rem; /* More rounded corners */
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-3px); /* Subtle lift on hover */
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  background-color: var(--primary-color); /* Primary color header */
+  color: var(--text-light);
+  font-weight: 600;
+  padding: 1.2rem 1.5rem; /* More padding */
+  border-bottom: 1px solid var(--primary-color-hover);
+  border-top-left-radius: 0.7rem; /* Match card border-radius */
+  border-top-right-radius: 0.7rem;
+  font-size: 1.1rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+/* --- Forms & Inputs --- */
+.form-group label {
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 0.6rem;
+  display: block; /* Ensure label is on its own line */
+}
+
+.form-control {
+  border: 1px solid var(--border-color);
+  border-radius: 0.5rem; /* More rounded inputs */
+  padding: 0.9rem 1.2rem;
+  font-size: 1rem;
+  color: var(--text-dark);
+  background-color: var(--card-bg);
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.form-control:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(var(--primary-color-rgb), .25); /* Primary color focus ring */
+  outline: none;
+}
+
+/* Select dropdown arrow customization */
+.form-group select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center; /* Adjusted position */
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+/* --- Buttons --- */
+.btn {
+  padding: 0.8rem 1.5rem; /* More substantial buttons */
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all var(--transition-speed);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-color-hover);
+  border-color: var(--primary-color-hover);
+  transform: translateY(-1px); /* Slight lift on hover */
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-secondary:hover {
+  background-color: var(--secondary-color-hover);
+  border-color: var(--secondary-color-hover);
+  transform: translateY(-1px);
+}
+
+.btn-info {
+  background-color: var(--info-color);
+  border-color: var(--info-color);
+}
+.btn-info:hover {
+  background-color: darken(var(--info-color), 10%); /* Placeholder for darken, will be a bit darker */
+  border-color: darken(var(--info-color), 10%);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+.btn-danger:hover {
+  background-color: darken(var(--danger-color), 10%);
+  border-color: darken(var(--danger-color), 10%);
+}
+
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  border-radius: 0.4rem;
+}
+
+/* --- Alerts --- */
+.alert {
+  padding: 1.2rem 1.5rem;
+  margin-top: 1.5rem;
+  border-radius: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: var(--shadow-sm);
+}
+.alert-success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+.alert-danger { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+.alert-info { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
+.alert-warning { background-color: #fff3cd; color: #856404; border-color: #ffeeba; }
+
+
+/* --- Tables --- */
+.table {
+  background-color: var(--card-bg);
+  border-radius: 0.8rem;
+  overflow: hidden; /* Ensures rounded corners */
+  box-shadow: var(--shadow-sm);
+}
+
+.table thead th {
+  background-color: var(--bg-light); /* Lighter header */
+  color: var(--text-dark);
+  font-weight: 600;
+  border-bottom: 2px solid var(--border-color);
+  padding: 1rem 1.2rem;
+}
+
+.table tbody tr {
+  transition: background-color var(--transition-speed);
+}
+
+.table tbody tr:hover {
+  background-color: #f5f5f5; /* Subtle hover effect */
+}
+
+.table tbody td {
+  padding: 1rem 1.2rem;
+  vertical-align: middle;
+  border-top: 1px solid var(--border-color); /* Lighter internal borders */
+}
+
+.table-bordered th, .table-bordered td {
+  border: 1px solid var(--border-color);
+}
+
+/* --- List Groups --- */
+.list-group-item {
+  background-color: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 0.6rem;
+  margin-bottom: 0.7rem; /* Space between list items */
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+.list-group-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+/* --- Recharts specific styling (for Dashboard) --- */
+.recharts-default-tooltip {
+  background-color: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid var(--border-color) !important;
+  border-radius: 0.5rem !important;
+  padding: 0.8rem !important;
+  box-shadow: var(--shadow-sm) !important;
+  font-size: 0.9rem !important;
+  color: var(--text-dark) !important;
+}
+.recharts-tooltip-label {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+.recharts-legend-wrapper {
+  padding-top: 1rem !important;
+}
+
+/* Spinner visual enhancement */
+.spinner-border {
+  color: var(--primary-color) !important;
+}
+
+/* Helper classes */
+.text-primary-color { color: var(--primary-color); }
+.text-secondary-color { color: var(--secondary-color); }
+.text-success-color { color: var(--success-color); }
+.text-danger-color { color: var(--danger-color); }
+.text-info-color { color: var(--info-color); }

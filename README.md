@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+# Personal Expense Tracker - Frontend (React.js)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the frontend component of the Personal Expense Tracker application, built with React.js. It provides a modern, interactive user interface for interacting with the Spring Boot backend.
 
-## Available Scripts
+## 🚀 Technologies
 
-In the project directory, you can run:
+*   **React 18+**: JavaScript library for building user interfaces.
+*   **React Router DOM**: For declarative routing in the application.
+*   **Axios**: Promise-based HTTP client for making API requests to the backend.
+*   **Recharts**: A composable charting library built on React components for data visualization.
+*   **Bootstrap**: Popular CSS framework for responsive and consistent styling.
+*   **Moment.js**: For parsing, validating, manipulating, and formatting dates.
+*   **Font Awesome**: For scalable vector icons.
+*   **npm / Yarn**: Package managers.
 
-### `npm start`
+## 📋 Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Before setting up the frontend, ensure you have:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+*   **Node.js (LTS version recommended)** installed.
+*   **npm** (comes with Node.js) or **Yarn** installed.
+*   An IDE like VS Code is highly recommended for React development.
+*   **The Spring Boot Backend must be running** on `http://localhost:8080` (or the configured URL).
 
-### `npm test`
+## 📦 Setup and Running
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1.  **Navigate to the frontend directory:**
+    ```bash
+    cd personal-expense-tracker/expense-tracker-frontend
+    ```
 
-### `npm run build`
+2.  **Install Dependencies:**
+    This command will install all necessary React and UI libraries (e.g., `axios`, `react-router-dom`, `recharts`, `bootstrap`, `moment`, `@fortawesome/fontawesome-free`).
+    ```bash
+    npm install
+    # or yarn install
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+3.  **Run the Application:**
+    ```bash
+    npm start
+    # or yarn start
+    ```
+    This command starts the development server. The application will typically open in your browser at `http://localhost:3000`. If port 3000 is already in use, it will prompt you to run on another available port (e.g., `3001`).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚙️ Configuration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+*   **Backend API URL**:
+    The frontend is configured to communicate with the backend running on `http://localhost:8080`. This is set in:
+    *   `src/services/AuthService.js` (for authentication endpoints)
+    *   `src/services/http-common.js` (for all protected API endpoints)
 
-### `npm run eject`
+    If your Spring Boot backend is running on a different port or domain, you will need to update these URLs accordingly.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+*   **CORS**:
+    During development, a proxy is configured in `package.json` to handle CORS issues (`"proxy": "http://localhost:8080"`). In a production deployment, ensure that your backend's CORS configuration allows requests from your frontend's domain.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 💡 Key Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+*   **Login/Register**: User authentication forms.
+*   **Dashboard**:
+    *   Overview of monthly spending trends (Line Chart).
+    *   Breakdown of expenses by category (Pie Chart).
+    *   Real-time budget tracking status, highlighting exceeded budgets.
+*   **Categories**: CRUD interface for managing custom expense categories.
+*   **Expenses**: CRUD interface for recording and managing individual expenses, linked to categories.
+*   **Budgets**: CRUD interface for setting and managing overall or category-specific budgets.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 📄 License
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This project is licensed under the MIT License.
